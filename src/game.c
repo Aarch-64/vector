@@ -134,6 +134,7 @@ void start()
     }
     clear();
     refresh();
+    exit_vlc();
     endwin();                      // end ncurses
     system("clear");
 
