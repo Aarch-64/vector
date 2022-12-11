@@ -34,16 +34,15 @@ void init_vlc(void)
     libvlc_media_release(m);
 
     // play the media_player
-    libvlc_media_player_play(mp);
-    
-    // sleep 300 seconds
-    sleep(300);
+    libvlc_media_player_play(mp); 
+}
 
-    // stop playing
+void exit_vlc(void){
+     // stop playing
     libvlc_media_player_stop(mp);
 
     // free the media_player
     libvlc_media_player_release(mp);
 
-    libvlc_release(inst);
+    libvlc_release(inst);   
 }
