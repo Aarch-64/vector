@@ -8,18 +8,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 #include <vlc/vlc.h>
+
+libvlc_instance_t *inst;
+libvlc_media_player_t *mp;
+libvlc_media_t *m;
 
 char armusic[64];
 
 void init_vlc(void)
-{
-    libvlc_instance_t *inst;
-    libvlc_media_player_t *mp;
-    libvlc_media_t *m;
-    
+{   
     // load the vlc engine
     inst = libvlc_new(0, NULL);
 
@@ -34,15 +33,16 @@ void init_vlc(void)
     libvlc_media_release(m);
 
     // play the media_player
-    libvlc_media_player_play(mp); 
+    libvlc_media_player_play(mp);
 }
 
-void exit_vlc(void){
-     // stop playing
+void exit_vlc(void)
+{
+    // stop playing
     libvlc_media_player_stop(mp);
 
     // free the media_player
     libvlc_media_player_release(mp);
-
-    libvlc_release(inst);   
+    
+    libvlc_release(inst);
 }
