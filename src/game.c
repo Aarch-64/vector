@@ -1,5 +1,6 @@
 #include "var.h"
 #include "function.h"
+#include "vlc.h"
 #include <ncurses.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -8,6 +9,8 @@ void ngame(PLAYER *P)
 {
     unsigned short int sel;
 
+    init_vlc();
+    sleep(1);
     system("clear");
     printf("Nickname (Max 20 characters): ");
     setbuf(stdin, NULL);    // clear stdin buffer
